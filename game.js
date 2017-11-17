@@ -6,7 +6,7 @@
 KEY_CODES = {
   32: 'space',
   37: 'left',
-  38: 'up',
+  81: 'up',
   39: 'right',
   40: 'down',
   70: 'f',
@@ -591,7 +591,7 @@ Bullet = function () {
   this.draw = function () {
     if (this.visible) {
       this.context.save();
-      this.context.lineWidth = 2;
+      this.context.lineWidth = 5;
       this.context.beginPath();
       this.context.moveTo(this.x-1, this.y-1);
       this.context.lineTo(this.x+1, this.y+1);
@@ -629,7 +629,7 @@ AlienBullet = function () {
   this.draw = function () {
     if (this.visible) {
       this.context.save();
-      this.context.lineWidth = 2;
+      this.context.lineWidth = 1;
       this.context.beginPath();
       this.context.moveTo(this.x, this.y);
       this.context.lineTo(this.x-this.vel.x, this.y-this.vel.y);
@@ -844,8 +844,8 @@ Text = {
 };
 
 SFX = {
-  laser:     new Audio('39459__THE_bizniss__laser.wav'),
-  explosion: new Audio('51467__smcameron__missile_explosion.wav')
+  laser:     new Audio('51467__smcameron__missile_explosion.wav'),
+  explosion: new Audio('39459__THE_bizniss__laser.wav')
 };
 
 // preload audio
@@ -940,11 +940,11 @@ Game = {
       }
 
       Game.score = 0;
-      Game.lives = 2;
-      Game.totalAsteroids = 2;
+      Game.lives = 3;
+      Game.totalAsteroids = 4;
       Game.spawnAsteroids();
 
-      Game.nextBigAlienTime = Date.now() + 30000 + (30000 * Math.random());
+      Game.nextBigAlienTime = Date.now() + 15000 + (15000 * Math.random());
 
       this.state = 'spawn_ship';
     },
