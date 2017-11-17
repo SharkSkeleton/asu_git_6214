@@ -238,7 +238,7 @@ Sprite = function () {
     this.context.moveTo(this.points[0], this.points[1]);
     for (var i = 1; i < this.points.length/2; i++) {
       var xi = i*2;
-      var yi = xi + 1;
+      var yi = xi + 3;
       this.context.lineTo(this.points[xi], this.points[yi]);
     }
 
@@ -553,7 +553,7 @@ BigAlien = function () {
   };
 
   BigAlien.prototype.collision = function (other) {
-    if (other.name == "bullet") Game.score += 200;
+    if (other.name == "bullet") Game.score += 300;
     SFX.explosion().play();
     Game.explosionAt(other.x, other.y);
     this.visible = false;
@@ -661,7 +661,7 @@ Asteroid = function () {
 
   this.collision = function (other) {
     SFX.explosion().play();
-    if (other.name == "bullet") Game.score += 120 / this.scale;
+    if (other.name == "bullet") Game.score += 240 / this.scale;
     this.scale /= 3;
     if (this.scale > 0.5) {
       // break into fragments
@@ -878,7 +878,7 @@ Game = {
   totalAsteroids: 5,
   lives: 0,
 
-  canvasWidth: 800,
+  canvasWidth: 900,
   canvasHeight: 600,
 
   sprites: [],
